@@ -106,5 +106,39 @@ footer {
   font-size: 14px;
   margin-top: 40px;
 }
-  
+
+.movie-container {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+
+.card {
+  flex: 0 0 150px;
+  height: 220px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.movie-title,
+.game-title {
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 6px;
+}
+
+span {
+  color: #ccc;
+  font-size: 0.85em;
+}
   
