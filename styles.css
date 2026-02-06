@@ -119,6 +119,8 @@ footer {
   flex: 0 0 150px;
   height: 220px;
   background: rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-position: center;
   color: white;
   padding: 12px;
   border-radius: 6px;

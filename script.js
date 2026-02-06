@@ -9,12 +9,7 @@ xhttp.onreadystatechange = function(){
         data.forEach(function(movie){
             let card = document.createElement("div");
             card.classList.add("card");
-            let textData = "<div class='movie-title'>" + movie.title + "</div>" +
-            "<span>"+
-            "Publisher:" + movie.publisher + "<br>" +
-            "Release Date: "+ movie.releaseDate + "<br>" +
-            "Needs Research:"+
-            "</span>";
+            let textData = "<div class='movie-title'>" + movie.title + "</div>" ;
 
             card.innerHTML = textData;
 
@@ -40,9 +35,7 @@ function makeCards() {
     card.classList.add("card");
 
     let textData =
-      "<div class='game-title'>" + game.title + "</div>" +
-      "<div>Publisher: " + game.publisher + "</div>" +
-      "<div>Release Date: " + game.releaseDate + "</div>";
+      "<div class='game-title'>" + game.title + "</div>";
 
     card.innerHTML = textData;
     grid.appendChild(card);
@@ -51,3 +44,50 @@ function makeCards() {
   console.log("cards refreshed");
 }
 
+// identify sorting buttons (make sure the #IDs below match your buttons in html)
+var sortAZBtn = document.querySelector("#sort-az");
+var sortZABtn = document.querySelector("#sort-za");
+
+
+// sort click handlers for buttons, add two buttons to your html and give them the same IDs as below
+sortAZBtn.addEventListener("click", function () {
+  sortByTitle("az");
+});
+  sortZABtn.addEventListener("click", function () {
+  sortByTitle("za");
+});
+
+
+
+// sort function
+function sortByTitle(direction) {
+  // data should be the variable that stores the list of data, make sure the name matches what you have
+  data.sort(function (a, b) {
+    var titleA = String(a.title).toLowerCase();
+    var titleB = String(b.title).toLowerCase();
+
+
+    if (titleA < titleB) {
+      if (direction == "az") {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+
+
+    if (titleA > titleB) {
+ if (direction == "az") {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+
+
+    return 0;
+  });
+
+
+  makeCards();
+}
